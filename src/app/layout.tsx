@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import QueryWrapper from "@/app/components/layouts/QueryWrapper";
+import Navbar from "@/app/components/layouts/Topbar";
+import MenuTop from "@/app/components/layouts/MenuTop";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,11 +29,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-palletedark1 bg-pallete1`}
       >
-      <QueryWrapper>
-        {children}
-      </QueryWrapper>
+      <div className={`flex flex-col fixed top-0 w-full `}>
+
+          <Navbar />
+          <MenuTop />
+      </div>
+      <div className={`mt-20`}>
+          <QueryWrapper>
+              {children}
+          </QueryWrapper>
+      </div>
       </body>
     </html>
   );

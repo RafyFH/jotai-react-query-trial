@@ -8,7 +8,6 @@ import { booksAtom } from "@/app/atoms/apiAtom";
 import { BookData, CreateBook } from "@/app/atoms/types/books";
 
 export default function Home() {
-    const [books, setBooks] = useAtom(booksAtom);
     const queryClient = useQueryClient();
     const [formData, setFormData] = useState({ title: '', author: '', stock: 0 });
     const [errorMessage, setErrorMessage] = useState('');
@@ -83,7 +82,7 @@ export default function Home() {
 
             <table className="table-auto w-full border-collapse border border-gray-200">
                 <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-gray-100 text-">
                     <th className="border px-4 py-2">Code</th>
                     <th className="border px-4 py-2">Title</th>
                     <th className="border px-4 py-2">Author</th>
