@@ -4,6 +4,7 @@ import "./globals.css";
 import QueryWrapper from "@/app/components/layouts/QueryWrapper";
 import Navbar from "@/app/components/layouts/Topbar";
 import MenuTop from "@/app/components/layouts/MenuTop";
+import Sidebar from "@/app/components/layouts/Sidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,18 +24,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-palletedark1 bg-pallete1`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-palletedark1 bg-gray-100`}
       >
-      <div className={`flex flex-col fixed top-0 w-full `}>
-
+      <div className={`flex fixed top-0 w-full `}>
           <Navbar />
-          <MenuTop />
       </div>
       <div className={`mt-20`}>
           <QueryWrapper>

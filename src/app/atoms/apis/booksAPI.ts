@@ -11,7 +11,6 @@ export const fetchBooksData = async (): Promise<BookData[]> => {
     return result.data as BookData[];
 };
 
-// Create a new book (Create)
 export const createBook = async (newBook: CreateBook): Promise<BookData> => {
     const response = await fetch(`${API_URL}/books`, {
         method: 'POST',
@@ -24,7 +23,6 @@ export const createBook = async (newBook: CreateBook): Promise<BookData> => {
     return response.json(); // Assume response has the structure of BookData
 };
 
-// Update a book (Update)
 export const updateBook = async (code: string, updatedBook: UpdateBook): Promise<BookData> => {
     const response = await fetch(`${API_URL}/books/${code}`, {
         method: 'PUT',
@@ -37,7 +35,6 @@ export const updateBook = async (code: string, updatedBook: UpdateBook): Promise
     return response.json() as Promise<BookData>;
 };
 
-// Delete a book (Delete)
 export const deleteBook = async (code: string): Promise<{ success: boolean }> => {
     const response = await fetch(`${API_URL}/books/${code}`, {
         method: 'DELETE',
