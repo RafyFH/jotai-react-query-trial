@@ -1,34 +1,13 @@
 "use client";
 
 import { FaAlignJustify } from "react-icons/fa";
-import {useEffect, useState} from "react";
 import Sidebar from "@/app/components/layouts/Sidebar";
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setIsOpen((prev) => !prev);
-    };
-
-    useEffect(() => {
-        const checkMobile = () => {
-            if (window.innerWidth >= 768) {
-                setIsOpen(true);
-            } else {
-                setIsOpen(false);
-            }
-        };
-
-        checkMobile();
-
-        window.addEventListener("resize", checkMobile);
-
-        return () => {
-            window.removeEventListener("resize", checkMobile);
-        };
-    },[])
-
+interface NavbarProps {
+    toggleSidebar: () => void;
+    isOpen: boolean;
+}
+const Navbar: React.FC<NavbarProps> = ({ toggleSidebar, isOpen }) => {
     return (
         <>
             <div
@@ -42,7 +21,7 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className={`flex items-center`}>
-                    <p>profile</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/9203/9203764.png" className={`max-w-10 h-auto`} alt="icon" />
                 </div>
             </div>
             <Sidebar isOpen={isOpen}/>

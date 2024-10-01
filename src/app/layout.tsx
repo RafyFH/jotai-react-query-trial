@@ -32,9 +32,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-palletedark1 bg-gray-100`}
       >
-      <div className={`flex fixed top-0 w-full `}>
-          <Navbar />
-      </div>
       <div className={`mt-20`}>
           <QueryWrapper>
               {children}
